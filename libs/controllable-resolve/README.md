@@ -41,10 +41,15 @@ resolveButton.addEventListener('click', () => {
 });
 ```
 
-### CreateControllableResolve options
+### createControllableResolve options
 
 | field             | default | type                      | description                                                                                                              |
 | ----------------- | ------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `ignorePrevious`  | `false` | `boolean`                 | if that be `true`, when `waitResolved` will ignore previous one,                                                         |
 | `once`            | `false` | `boolean`                 | once the `waitResolved` promise be resolved, that will keep that resolve promise until you call `reset` method manually. |
 | `onWaitingChange` | -       | `(state:boolean) => void` | be triggered when promise waiting state change                                                                           |
+
+
+### React hook
+
+[use-controllable-resolve](https://github.com/ZouYouShun/controllable-resolve/tree/main/libs/use-controllable-resolve)
