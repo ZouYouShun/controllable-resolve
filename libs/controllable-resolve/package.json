@@ -1,0 +1,22 @@
+{
+  "name": "controllable-resolve",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "author": "alanzou",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZouYouShun/controllable-resolve.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZouYouShun/controllable-resolve/issues"
+  },
+  "homepage": "https://zouyoushun.github.io/controllable-resolve",
+  "keywords": [
+    "react",
+    "hook",
+    "promise",
+    "controllable resolve"
+  ]
+}

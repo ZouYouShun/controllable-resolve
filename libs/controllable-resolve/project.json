@@ -1,0 +1,49 @@
+{
+  "name": "controllable-resolve",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/controllable-resolve/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/controllable-resolve",
+        "tsConfig": "libs/controllable-resolve/tsconfig.lib.json",
+        "project": "libs/controllable-resolve/package.json",
+        "entryFile": "libs/controllable-resolve/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/controllable-resolve/README.md",
+            "input": ".",
+            "output": "."
+          },
+          {
+            "glob": "LICENSE",
+            "input": ".",
+            "output": "."
+          }
+        ],
+        "format": ["esm", "cjs"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/controllable-resolve/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["{projectRoot}/coverage"],
+      "options": {
+        "passWithNoTests": true
+      }
+    }
+  }
+}

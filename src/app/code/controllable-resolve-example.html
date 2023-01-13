@@ -1,0 +1,33 @@
+<div>
+  <button id="start">Start</button>
+  <button id="resolve" style="display: none">Resolve</button>
+</div>
+
+<script>
+  import { createControllableResolve } from 'controllable-resolve';
+
+  const controllableResolve = createControllableResolve({
+    // with ignore previous option, the waitResolve function will only call the latest one when resolved
+    ignorePrevious: true,
+    onWaitingChange(state) {
+      startButton.style.display = state ? 'none' : 'block';
+      resolveButton.style.display = state ? 'block' : 'none';
+    },
+  });
+  const { waitResolved, resolve } = controllableResolve;
+
+  const startButton = document.getElementById('start');
+  const resolveButton = document.getElementById('resolve');
+
+  startButton.addEventListener('click', () => {
+    // wait promise resolved
+    waitResolved().then((value) => {
+      alert(`do something with value: ${value}`);
+    });
+  });
+
+  resolveButton.addEventListener('click', () => {
+    // resolve that promise when you need
+    resolve(100);
+  });
+</script>
