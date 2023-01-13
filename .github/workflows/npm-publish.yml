@@ -3,11 +3,10 @@ name: Npm publish [controllable-resolve]
 on:
   release:
     types: [created]
-    branches:
-      - controllable-resolve
 
 jobs:
   publish-npm:
+    if: ${{ startsWith(github.ref, 'controllable-resolve') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -29,7 +28,6 @@ jobs:
         run: npm run nx run controllable-resolve:build
 
       - name: Publish 🔧
-        if: ${{ contains(github.ref, 'controllable-resolve') }}
         run: npm publish ./dist/libs/controllable-resolve
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
