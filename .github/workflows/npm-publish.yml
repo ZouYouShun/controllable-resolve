@@ -1,4 +1,4 @@
-name: Npm publish [controllable-resolve]
+name: Npm publish
 
 on:
   release:
@@ -6,7 +6,6 @@ on:
 
 jobs:
   publish-npm:
-    if: ${{ startsWith(github.ref, 'controllable-resolve') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
