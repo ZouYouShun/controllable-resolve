@@ -1,4 +1,4 @@
-# useMutative
+# controllable-resolve
 
 ![](https://github.com/ZouYouShun/controllable-resolve/actions/workflows/main-merge.yml/badge.svg)
 ![](https://github.com/ZouYouShun/controllable-resolve/actions/workflows/npm-publish.yml/badge.svg)
@@ -7,109 +7,44 @@
 
 [Example](https://zouyoushun.github.io/controllable-resolve/#useMutative)
 
-A hook to use [controllable-resolve](https://github.com/ZouYouShun/controllable-resolve) as a React hook to efficient update react state immutable with mutable way.
+A simple controllable promise resolve let you can control when to resolve promise
 
 ## Installation
 
 ```bash
-npm install controllable-resolve use-controllable-resolve
+npm install controllable-resolve
 ```
 
 ## API
 
-### useMutative
+### createControllableResolve
 
-Provide you can create immutable state easily with mutable way.
+```ts
+import { createControllableResolve } from 'controllable-resolve';
 
-```tsx
-export function App() {
-  const [state, setState] = useMutative(
-    {
-      foo: 'bar',
-      list: [
-        { text: 'todo' },
-      ],
-    },
-  );
-  <button
-    onClick={() => {
-      // set value with draft mutable
-      setState((draft) => {
-        draft.foo = `${draft.foo} 2`;
-        draft.list.push({ text: 'todo 2' });
-      });
-    }}
-  >
-    click
-  </button>
-  <button
-    onClick={() => {
-      // also can override value directly
-      setState({
-        foo: 'bar 2',
-        list: [{ text: 'todo 2' }],
-      });
-    }}
-  >
-    click
-  </button>
-}
-```
+const controllableResolve = createControllableResolve();
+const { waitResolved, resolve } = controllableResolve;
 
-### useMutativeReducer
+const startButton = document.getElementById('start');
+const resolveButton = document.getElementById('resolve');
 
-Provide you can create immutable state easily with mutable way in reducer way.
-
-```tsx
-function reducer(
-  draft: State,
-  action: { type: 'reset' | 'increment' | 'decrement' }
-) {
-  switch (action.type) {
-    case 'reset':
-      return initialState;
-    case 'increment':
-      return void draft.count++;
-    case 'decrement':
-      return void draft.count--;
-  }
-}
-
-export function App() {
-  const [state, dispatch] = useMutativeReducer(reducer, initialState);
-
-  return (
-    <div>
-      Count: {state.count}
-      <br />
-      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
-      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
-      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
-    </div>
-  );
-}
-```
-
-### Patches
-
-In some cases, you may want to get that patches from your update, we can pass `{ enablePatches: true }` options in `useMutative` or `useMutativeReducer`, that can provide you the ability to get that patches from pervious action.
-
-```tsx
-const [state, setState, patches, inversePatches] = useMutative(initState, {
-  enablePatches: true,
+startButton.addEventListener('click', () => {
+  // wait promise resolved
+  waitResolved().then((value) => {
+    alert(`do something with value: ${value}`);
+  });
 });
 
-const [state, dispatch, patchState] = useMutativeReducer(
-  reducer,
-  initState,
-  initializer,
-  { enablePatches: true }
-);
-
-// actions be that actions that are applied in previous state.
-const [actions, patchGroup] = patchState;
-
-const [patches, inversePatches] = patches;
+resolveButton.addEventListener('click', () => {
+  // resolve that promise when you need
+  resolve(100);
+});
 ```
 
-patches format will follow https://jsonpatch.com/, but the `"path"` field be array structure.
+### createControllableResolve options
+
+| field             | default | type                      | description                                                                                                              |
+| ----------------- | ------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `ignorePrevious`  | `false` | `boolean`                 | if that be `true`, when `waitResolved` will ignore previous one,                                                         |
+| `once`            | `false` | `boolean`                 | once the `waitResolved` promise be resolved, that will keep that resolve promise until you call `reset` method manually. |
+| `onWaitingChange` | -       | `(state:boolean) => void` | be triggered when promise waiting state change                                                                           |

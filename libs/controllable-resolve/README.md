@@ -1,7 +1,50 @@
 # controllable-resolve
 
-This library was generated with [Nx](https://nx.dev).
+![](https://github.com/ZouYouShun/controllable-resolve/actions/workflows/main-merge.yml/badge.svg)
+![](https://github.com/ZouYouShun/controllable-resolve/actions/workflows/npm-publish.yml/badge.svg)
+[![npm](https://img.shields.io/npm/v/use-controllable-resolve.svg)](https://www.npmjs.com/package/use-controllable-resolve)
+![license](https://img.shields.io/npm/l/use-controllable-resolve)
 
-## Running unit tests
+[Example](https://zouyoushun.github.io/controllable-resolve/#useMutative)
 
-Run `nx test controllable-resolve` to execute the unit tests via [Vitest](https://vitest.dev/).
+A simple controllable promise resolve let you can control when to resolve promise
+
+## Installation
+
+```bash
+npm install controllable-resolve
+```
+
+## API
+
+### createControllableResolve
+
+```ts
+import { createControllableResolve } from 'controllable-resolve';
+
+const controllableResolve = createControllableResolve();
+const { waitResolved, resolve } = controllableResolve;
+
+const startButton = document.getElementById('start');
+const resolveButton = document.getElementById('resolve');
+
+startButton.addEventListener('click', () => {
+  // wait promise resolved
+  waitResolved().then((value) => {
+    alert(`do something with value: ${value}`);
+  });
+});
+
+resolveButton.addEventListener('click', () => {
+  // resolve that promise when you need
+  resolve(100);
+});
+```
+
+### createControllableResolve options
+
+| field             | default | type                      | description                                                                                                              |
+| ----------------- | ------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `ignorePrevious`  | `false` | `boolean`                 | if that be `true`, when `waitResolved` will ignore previous one,                                                         |
+| `once`            | `false` | `boolean`                 | once the `waitResolved` promise be resolved, that will keep that resolve promise until you call `reset` method manually. |
+| `onWaitingChange` | -       | `(state:boolean) => void` | be triggered when promise waiting state change                                                                           |

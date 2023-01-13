@@ -10,7 +10,7 @@ export type CreateControllableResolveOptions = {
    */
   once?: boolean;
   /**
-   * triggers when promise waiting state change
+   * be triggered when promise waiting state change
    */
   onWaitingChange?: (state: boolean) => void;
 };
