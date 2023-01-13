@@ -41,7 +41,7 @@ resolveButton.addEventListener('click', () => {
 });
 ```
 
-### createControllableResolve options
+### CreateControllableResolve options
 
 | field             | default | type                      | description                                                                                                              |
 | ----------------- | ------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |

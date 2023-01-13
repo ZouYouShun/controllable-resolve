@@ -2,10 +2,10 @@
 
 ![](https://github.com/ZouYouShun/controllable-resolve/actions/workflows/main-merge.yml/badge.svg)
 ![](https://github.com/ZouYouShun/controllable-resolve/actions/workflows/npm-publish.yml/badge.svg)
-[![npm](https://img.shields.io/npm/v/use-controllable-resolve.svg)](https://www.npmjs.com/package/use-controllable-resolve)
-![license](https://img.shields.io/npm/l/use-controllable-resolve)
+[![npm](https://img.shields.io/npm/v/controllable-resolve.svg)](https://www.npmjs.com/package/controllable-resolve)
+![license](https://img.shields.io/npm/l/controllable-resolve)
 
-[Example](https://zouyoushun.github.io/controllable-resolve/#useMutative)
+[Example](https://zouyoushun.github.io/controllable-resolve/)
 
 A simple controllable promise resolve let you can control when to resolve promise
 
