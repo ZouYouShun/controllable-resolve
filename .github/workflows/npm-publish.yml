@@ -23,11 +23,11 @@ jobs:
       - name: Test 🧪
         run: npm run nx run use-controllable-resolve:test:production
 
-      - name: Build 🔧
-        run: npm run nx run use-controllable-resolve:build
+      - name: Build controllable-resolve 🔧
+        run: npm run nx run controllable-resolve:build
 
       - name: Publish 🔧
-        run: npm publish ./dist/libs/use-controllable-resolve
+        run: npm publish ./dist/libs/controllable-resolve
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
           CI: true
