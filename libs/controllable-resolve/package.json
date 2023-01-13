@@ -1,6 +1,6 @@
 {
   "name": "controllable-resolve",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./index.js",
   "types": "./index.d.ts",
   "author": "alanzou",
@@ -14,8 +14,7 @@
   },
   "homepage": "https://zouyoushun.github.io/controllable-resolve",
   "keywords": [
-    "react",
-    "hook",
+    "vanilla-javascript",
     "promise",
     "controllable resolve"
   ]
