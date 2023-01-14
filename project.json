@@ -12,8 +12,12 @@
         "outputPath": "dist/controllable-resolve-project"
       },
       "configurations": {
-        "development": {},
-        "production": {}
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
       }
     },
     "serve": {

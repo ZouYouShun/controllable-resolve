@@ -16,9 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "controllable-resolve": ["libs/controllable-resolve/src/index.ts"],
-      "use-controllable-resolve": [
-        "libs/use-controllable-resolve/src/index.ts"
-      ]
+      "use-controllable-resolve": ["libs/use-controllable-resolve/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
