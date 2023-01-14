@@ -49,13 +49,13 @@ resolveButton.addEventListener('click', () => {
 | `once`            | `false` | `boolean`                 | once the `waitResolved` promise be resolved, that will keep that resolve promise until you call `reset` method manually. |
 | `onWaitingChange` | -       | `(state:boolean) => void` | be triggered when promise waiting state change                                                                           |
 
-
 ### React hook
 
 [use-controllable-resolve](https://github.com/ZouYouShun/controllable-resolve/tree/main/libs/use-controllable-resolve)
 
-
 ### Unpkg link
 
-[iife](https://unpkg.com/controllable-resolve/unpkg/controllable-resolve.iife.js)
-[umd](https://unpkg.com/controllable-resolve/unpkg/controllable-resolve.umd.js)
+[Unpkg Online Demo](https://stackblitz.com/edit/web-platform-aabfvr?file=index.html)
+
+[controllable-resolve.iife.js](https://unpkg.com/controllable-resolve/unpkg/controllable-resolve.iife.js)
+[controllable-resolve.umd.js](https://unpkg.com/controllable-resolve/unpkg/controllable-resolve.umd.js)
