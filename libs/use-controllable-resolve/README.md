@@ -58,3 +58,9 @@ export const UseControllableResolveExample: FC = () => {
 | `ignorePrevious`  | `false` | `boolean`                 | if that be `true`, when `waitResolved` will ignore previous one,                                                         |
 | `once`            | `false` | `boolean`                 | once the `waitResolved` promise be resolved, that will keep that resolve promise until you call `reset` method manually. |
 | `onWaitingChange` | -       | `(state:boolean) => void` | be triggered when promise waiting state change                                                                           |
+
+
+### Unpkg link
+
+[iife](https://unpkg.com/use-controllable-resolve/unpkg/use-controllable-resolve.iife.js)
+[umd](https://unpkg.com/use-controllable-resolve/unpkg/use-controllable-resolve.umd.js)

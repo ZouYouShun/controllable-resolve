@@ -57,5 +57,5 @@ resolveButton.addEventListener('click', () => {
 
 ### Unpkg link
 
-[iife](https://unpkg.com/use-controllable-resolve/unpkg/controllable-resolve.iife.js)
-[umd](https://unpkg.com/use-controllable-resolve/unpkg/controllable-resolve.umd.js)
+[iife](https://unpkg.com/controllable-resolve/unpkg/controllable-resolve.iife.js)
+[umd](https://unpkg.com/controllable-resolve/unpkg/controllable-resolve.umd.js)
