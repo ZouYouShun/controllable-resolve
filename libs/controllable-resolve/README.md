@@ -53,3 +53,9 @@ resolveButton.addEventListener('click', () => {
 ### React hook
 
 [use-controllable-resolve](https://github.com/ZouYouShun/controllable-resolve/tree/main/libs/use-controllable-resolve)
+
+
+### Unpkg link
+
+[iife](https://unpkg.com/use-controllable-resolve/unpkg/controllable-resolve.iife.js)
+[umd](https://unpkg.com/use-controllable-resolve/unpkg/controllable-resolve.umd.js)

@@ -1,10 +1,12 @@
 {
   "name": "controllable-resolve",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "./index.js",
   "types": "./index.d.ts",
   "author": "alanzou",
   "license": "MIT",
+  "umd:main": "unpkg/controllable-resolve.iife.js",
+  "unpkg": "unpkg/controllable-resolve.umd.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZouYouShun/controllable-resolve.git"

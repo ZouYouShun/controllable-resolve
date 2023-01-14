@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Test 🧪
-        run: npm run nx run use-controllable-resolve:test:production
+        run: npm run test
 
       - name: Build controllable-resolve 🔧
         run: npm run nx run use-controllable-resolve:build

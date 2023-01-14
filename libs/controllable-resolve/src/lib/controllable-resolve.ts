@@ -78,7 +78,6 @@ export function createControllableResolve<T = void>({
      */
     cancel() {
       if (process.env.NODE_ENV !== 'production') {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
         if (!keep.promise) {
           console.warn(
             '[createResolve] promise still not be created, please do waitResolved before cancel'

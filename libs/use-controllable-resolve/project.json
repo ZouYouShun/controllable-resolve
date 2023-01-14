@@ -18,6 +18,16 @@
         "compiler": "babel",
         "assets": [
           {
+            "glob": "dist/libs/use-controllable-resolve-unpkg/use-controllable-resolve.iife.js",
+            "input": ".",
+            "output": "./unpkg"
+          },
+          {
+            "glob": "dist/libs/use-controllable-resolve-unpkg/use-controllable-resolve.umd.js",
+            "input": ".",
+            "output": "./unpkg"
+          },
+          {
             "glob": "libs/use-controllable-resolve/README.md",
             "input": ".",
             "output": "."
@@ -29,6 +39,14 @@
           }
         ],
         "format": ["esm", "cjs"]
+      },
+      "dependsOn": ["build:unpkg"]
+    },
+    "build:unpkg": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/use-controllable-resolve-unpkg"
       }
     },
     "lint": {
