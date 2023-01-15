@@ -119,11 +119,11 @@ export function createControllableResolve<T = void>({
     /**
      * is there have promise be waiting
      */
-    waiting() {
+    get waiting() {
       return waiting;
     },
     /**
-     * when you use `once` mode, and want reset that keep promise, use that reset to renew that.
+     * when you use `once` mode, use to clear those keep promise and resolve value.
      */
     reset() {
       keep = {};
