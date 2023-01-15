@@ -156,6 +156,72 @@ describe('[createControllableResolve] main logic', () => {
     await Promise.resolve();
     expect(resolveFn).toBeCalled();
   });
+
+  it('turn on `once` option and can get value from that controllableResolve', async () => {
+    const current = createControllableResolve<number>({ once: true });
+    const spy = vi.spyOn(console, 'warn');
+
+    expect(current.value).toBeUndefined();
+
+    current.waitResolved();
+
+    current.resolve(100);
+
+    expect(current.value).toBe(100);
+
+    current.resolve(200);
+    // still be 100, and show warning
+    expect(current.value).toBe(100);
+    expect(spy).toBeCalledWith(
+      '[createResolve] there have set `once` option, and that promise be completed, not need resolve again.'
+    );
+
+    // when not be `once` mode should never get value with that controllableResolve
+
+    expect(current.value).toBe(100);
+    expect(spy).toBeCalledWith(
+      '[createResolve] there have set `once` option, and that promise be completed, not need resolve again.'
+    );
+  });
+
+  it('when not be `once` mode should never get value with that controllableResolve', async () => {
+    const current = createControllableResolve<number>();
+    const spy = vi.spyOn(console, 'warn');
+
+    expect(current.value).toBeUndefined();
+    expect(spy).toBeCalledWith(
+      '[createResolve] resolve value only work when `once` be true, not supported normal mode.'
+    );
+
+    current.waitResolved();
+
+    current.resolve(100);
+
+    expect(current.value).toBeUndefined();
+
+    current.resolve(200);
+    // still be 100, and show warning
+    expect(current.value).toBeUndefined();
+
+    expect(spy.mock.calls).toEqual([
+      [
+        '[createResolve] resolve value only work when `once` be true, not supported normal mode.',
+      ],
+      [
+        '[createResolve] resolve value only work when `once` be true, not supported normal mode.',
+      ],
+      [
+        '[createResolve] promise still not be created, please do waitResolved before resolve',
+      ],
+      [
+        '[createResolve] resolve value only work when `once` be true, not supported normal mode.',
+      ],
+    ]);
+
+    expect(spy).not.toBeCalledWith(
+      '[createResolve] there have set `once` option, and that promise be completed, not need resolve again.'
+    );
+  });
 });
 
 describe('[createControllableResolve] console warning', () => {

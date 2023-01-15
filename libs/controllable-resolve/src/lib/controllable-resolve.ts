@@ -26,6 +26,7 @@ export function createControllableResolve<T = void>({
   let keep: {
     promise?: Promise<T>;
     resolve?: (value: T | PromiseLike<T>) => void;
+    value?: T;
   } = {};
 
   let waiting = false;
@@ -68,7 +69,11 @@ export function createControllableResolve<T = void>({
         }
       }
 
-      keep.resolve?.(value);
+      if (keep.resolve) {
+        keep.resolve(value);
+
+        if (once) keep.value = value;
+      }
 
       reset();
     },
@@ -123,6 +128,18 @@ export function createControllableResolve<T = void>({
     reset() {
       keep = {};
       reset();
+    },
+    /**
+     * when you use `once` mode, that value be keep inside the promise result
+     */
+    get value() {
+      if (process.env.NODE_ENV !== 'production' && !once) {
+        console.warn(
+          '[createResolve] resolve value only work when `once` be true, not supported normal mode.'
+        );
+      }
+
+      return keep.value;
     },
   };
 }
