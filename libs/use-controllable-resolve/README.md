@@ -5,9 +5,12 @@
 [![npm](https://img.shields.io/npm/v/use-controllable-resolve.svg)](https://www.npmjs.com/package/use-controllable-resolve)
 ![license](https://img.shields.io/npm/l/use-controllable-resolve)
 
-[Example](https://zouyoushun.github.io/controllable-resolve/)
-
 A hook to use [controllable-resolve](https://github.com/ZouYouShun/controllable-resolve) as a React hook to create a simple controllable promise resolve let you can control when to resolve promise
+
+# Demo
+
+- [Demo Website](https://zouyoushun.github.io/controllable-resolve/)
+- [Stackblitz Online Demo](https://stackblitz.com/edit/vitejs-vite-cor8h1?file=src/UseControllableResolveExample.tsx)
 
 ## Installation
 
@@ -15,9 +18,9 @@ A hook to use [controllable-resolve](https://github.com/ZouYouShun/controllable-
 npm install use-controllable-resolve
 ```
 
-## API
+## Usage
 
-### useControllableResolve
+### `useControllableResolve`
 
 ```tsx
 import type { FC } from 'react';
@@ -51,16 +54,12 @@ export const UseControllableResolveExample: FC = () => {
 };
 ```
 
-### UseControllableResolve options
+## API
 
-| field             | default | type                      | description                                                                                                              |
-| ----------------- | ------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `ignorePrevious`  | `false` | `boolean`                 | if that be `true`, when `waitResolved` will ignore previous one,                                                         |
-| `once`            | `false` | `boolean`                 | once the `waitResolved` promise be resolved, that will keep that resolve promise until you call `reset` method manually. |
-| `onWaitingChange` | -       | `(state:boolean) => void` | be triggered when promise waiting state change                                                                           |
+For more detail api, view on [controllable-resolve](https://github.com/ZouYouShun/controllable-resolve),
+that `use-controllable-resolve` just a wrapper with that, and provide you some hints about that.
 
+## Unpkg link
 
-### Unpkg link
-
-[iife](https://unpkg.com/use-controllable-resolve/unpkg/use-controllable-resolve.iife.js)
-[umd](https://unpkg.com/use-controllable-resolve/unpkg/use-controllable-resolve.umd.js)
+- [iife](https://unpkg.com/use-controllable-resolve/unpkg/use-controllable-resolve.iife.js)
+- [umd](https://unpkg.com/use-controllable-resolve/unpkg/use-controllable-resolve.umd.js)

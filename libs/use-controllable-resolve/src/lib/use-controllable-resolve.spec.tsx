@@ -88,19 +88,19 @@ describe('[useControllableResolve] main logic', () => {
 
     const current = result.current;
 
-    expect(current.waiting()).toBeFalsy();
+    expect(current.waiting).toBeFalsy();
 
     current.waitResolved();
-    expect(current.waiting()).toBeTruthy();
+    expect(current.waiting).toBeTruthy();
 
     current.resolve();
-    expect(current.waiting()).toBeFalsy();
+    expect(current.waiting).toBeFalsy();
 
     current.waitResolved();
-    expect(current.waiting()).toBeTruthy();
+    expect(current.waiting).toBeTruthy();
 
     current.cancel();
-    expect(current.waiting()).toBeFalsy();
+    expect(current.waiting).toBeFalsy();
   });
 
   it('`onWaitingChange` be called when state change', async () => {
